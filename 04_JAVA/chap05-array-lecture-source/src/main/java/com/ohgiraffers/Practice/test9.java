@@ -17,7 +17,5 @@ public class test9 {
         }else {
             System.out.println("준비된 과일이 없습니다.");
         }
-
-
     }
 }
