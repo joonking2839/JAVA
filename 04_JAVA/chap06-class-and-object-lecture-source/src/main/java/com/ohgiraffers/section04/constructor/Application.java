@@ -1,5 +1,7 @@
 package com.ohgiraffers.section04.constructor;
 
+import java.util.Scanner;
+
 public class Application {
 
     public static void main(String[] args) {
@@ -32,7 +34,15 @@ public class Application {
 //        System.out.println(user2.getInformation());
 
         /* 3. 모든 필드를 초기화하는 생성자를 호출하여 인스턴스 생성 후 필드값 출력 */
-        User user3 = new User("user01", "pass01", "유관순", new java.util.Date());
+        Scanner sc = new Scanner(System.in);
+        System.out.println("id를 입력하세요.");
+        String Id=sc.nextLine();
+        System.out.println("pwd를 입력하세요");
+        String Pwd=sc.nextLine();
+        System.out.println("이름을 입력하세요.");
+        String Name=sc.nextLine();
+
+        User user3 = new User(Id, Pwd,Name, new java.util.Date());
         System.out.println(user3.getInformation());
     }
 }

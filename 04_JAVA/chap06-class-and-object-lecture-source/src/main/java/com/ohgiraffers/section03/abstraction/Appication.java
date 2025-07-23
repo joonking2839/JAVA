@@ -15,7 +15,6 @@ public class Appication {
             System.out.println("2.전진");
             System.out.println("3.정지");
             System.out.println("4.시동끄기");
-            System.out.println("5.부스터");
             System.out.println("9.프로그램 종료");
             System.out.println("메뉴선택:");
             int no=sc.nextInt();
