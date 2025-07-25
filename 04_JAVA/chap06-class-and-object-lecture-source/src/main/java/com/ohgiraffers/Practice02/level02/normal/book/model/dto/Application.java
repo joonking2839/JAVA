@@ -1,6 +1,6 @@
-package com.ohgiraffers.practice02.level02.normal.book.run;
+package com.ohgiraffers.Practice02.level02.normal.book.run;
 
-import com.ohgiraffers.practice02.level02.normal.book.model.dto.BookDTO;
+import com.ohgiraffers.Practice02.level02.normal.book.model.dto.BookDTO;
 
 public class Application {
     public static void main(String[] args) {

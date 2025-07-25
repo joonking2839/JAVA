@@ -1,4 +1,4 @@
-package com.ohgiraffers.practice02.level02.normal.book.model.dto;
+package com.ohgiraffers.Practice02.level02.normal.book.model.dto;
 
 public class BookDTO {
 
@@ -42,6 +42,26 @@ public class BookDTO {
 
     public void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public double getDiscountRate() {
+        return discountRate;
     }
 
     public void printInformation() {

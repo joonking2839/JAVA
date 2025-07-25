@@ -1,4 +1,4 @@
-package com.ohgiraffers.practice02.level01.basic.model.dto;
+package com.ohgiraffers.Practice02.level01.basic.model.dto;
 
 public class Application {
 
