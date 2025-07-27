@@ -18,10 +18,12 @@ public class Application {
 
         // 레퍼런스 타입으로만 사용 가능
         InterProduct interProduct = new Product();
+        InterProduct2 interProduct2=new Product();
 
         // 인터페이스의 추상메소드 오버라이딩한 메소드로 동적바인딩
         interProduct.nonStaticMethod();
         interProduct.abstMethod();
+
 
         // 오버라이딩 하지 않으면 인터페이스의 default 메소드로 호출
         interProduct.defaultMethod();
@@ -32,5 +34,6 @@ public class Application {
         // 상수 필드 접근도 인터페이스명.필드명 으로 접근
         System.out.println(InterProduct.MAX_NUM);
         System.out.println(InterProduct.MIN_NUM);
+        System.out.println(interProduct2.max_num);
     }
 }

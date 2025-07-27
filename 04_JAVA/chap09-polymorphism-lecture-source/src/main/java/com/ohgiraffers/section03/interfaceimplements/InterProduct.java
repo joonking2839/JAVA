@@ -31,5 +31,7 @@ public interface InterProduct {
     public default void defaultMethod() {
 
         System.out.println("InterProduct 클래스의 defaultMethod 호출됨");
+        System.out.println("InterProduct 클래스의 defaultMethod 호출됨");
+        System.out.println("InterProduct 클래스의 defaultMethod 호출됨");
     }
 }

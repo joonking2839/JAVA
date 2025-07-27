@@ -29,6 +29,9 @@ public class Application {
 //        Product product = new Product(); // 추상클래스는 인스턴스 생성 불가
 
         SmartPhone smartPhone = new SmartPhone();
+        SmartPhone2 smartPhone2 = new SmartPhone2();
+
+        smartPhone2.abstMethod();
 
         System.out.println(smartPhone instanceof SmartPhone);
         System.out.println(smartPhone instanceof Product);

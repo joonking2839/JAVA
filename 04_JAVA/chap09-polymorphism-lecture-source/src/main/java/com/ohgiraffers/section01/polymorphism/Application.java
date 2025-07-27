@@ -46,7 +46,7 @@ public class Application {
         tiger.bite();
 
         /* 부모 타입으로 자식 인스턴스 주소값 저장 */
-        Animal a1 = new Rabbit();
+        Animal a1 = new Animal();
         Animal a2 = new Tiger();
 
 //        Rabbit r = new Animal();
@@ -68,7 +68,7 @@ public class Application {
 
         /* 타입 형변환 확인 */
         System.out.println("======== 클래스타입 형변환 확인");
-        ((Rabbit) a1).jump();
+//        ((Rabbit) a1).jump();
         ((Tiger) a2).bite();
 
         /* 타입 형변환을 잘못 하는 경우 (실제 인스턴스와 타입이 일치하지 않는 경우)

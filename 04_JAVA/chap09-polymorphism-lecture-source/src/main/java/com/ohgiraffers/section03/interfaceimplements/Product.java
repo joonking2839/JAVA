@@ -1,7 +1,7 @@
 package com.ohgiraffers.section03.interfaceimplements;
 
 /* 클래스에서 인터페이스를 상속받을 때에는 implements 키워드를 사용한다. */
-public class Product implements InterProduct {
+public class Product implements InterProduct,InterProduct2{
 
     @Override
     public void nonStaticMethod() {
