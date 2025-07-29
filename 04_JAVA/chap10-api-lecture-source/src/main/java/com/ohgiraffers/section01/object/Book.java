@@ -20,28 +20,28 @@ public class Book {
         return number;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public int getPrice() {
         return price;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public void setPrice(int price) {
@@ -49,6 +49,8 @@ public class Book {
     }
 
     // 1. toString() 오버라이딩
+
+
     @Override
     public String toString() {
         return "Book{" +
@@ -128,4 +130,6 @@ public class Book {
         /* 모든 조건을 통과하면 두 인스턴스의 모든 필드는 같은 값을 가지므로 true 반환 */
         return true;
     }
+
+
 }
