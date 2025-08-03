@@ -1,0 +1,189 @@
+package com.ohgiraffers.hw1.model.dto;
+
+import java.util.Objects;
+
+public class BookDTO {
+    private int bNO;
+    private int category;
+    private String title;
+    private String author;
+
+    public BookDTO(){}
+
+    public BookDTO(int bNO, int category, String title, String author) {
+        this.bNO = bNO;
+        this.category = category;
+        this.title = title;
+        this.author = author;
+    }
+
+    public int getbNO() {
+        return bNO;
+    }
+
+    public void setbNO(int bNO) {
+        this.bNO = bNO;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        String categoryName = switch (category) {
+            case 1 -> "인문";
+            case 2 -> "자연과학";
+            case 3 -> "의료";
+            case 4 -> "기타";
+            default -> "미분류";
+        };
+
+        return "BookDTO{" +
+                "bNO=" + bNO +
+                ", category=" + categoryName +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        BookDTO bookDTO = (BookDTO) o;
+        return bNO == bookDTO.bNO && category == bookDTO.category && Objects.equals(title, bookDTO.title) && Objects.equals(author, bookDTO.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bNO, category, title, author);
+    }
+}
+package com.ohgiraffers.hw1.model.comparator;
+
+import com.ohgiraffers.hw1.model.dto.BookDTO;
+import java.util.Comparator;
+
+public class DescCategory implements Comparator<BookDTO> {
+
+    @Override
+    public int compare(BookDTO o1, BookDTO o2) {
+        return Integer.compare(o2.getCategory(), o1.getCategory());
+    }
+}
+package com.ohgiraffers.hw1.model.comparator;
+
+import com.ohgiraffers.hw1.model.dto.BookDTO;
+import java.util.Comparator;
+
+public class AscCategory implements Comparator<BookDTO> {
+
+    @Override
+    public int compare(BookDTO o1, BookDTO o2) {
+        return Integer.compare(o1.getCategory(), o2.getCategory());
+        // 작은 숫자가 먼저: 1 → 2 → 3 → 4
+    }
+}
+package com.ohgiraffers.hw1.controller;
+
+import com.ohgiraffers.hw1.model.comparator.AscCategory;
+import com.ohgiraffers.hw1.model.comparator.DescCategory;
+import com.ohgiraffers.hw1.model.dto.BookDTO;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+public class BookManager {
+    private ArrayList<BookDTO> bookList;
+
+    public BookManager(){
+        bookList=new ArrayList<>();
+    }
+
+    public void addBook(BookDTO book) {
+        bookList.add(book);
+    }
+
+    public void deleteBook(int index){
+        if(index>=0 && index<bookList.size()){
+            bookList.remove(index);
+            System.out.println(index+"번 도서가 삭제되었습니다");
+        }else {
+            System.out.println("잘못된 번호를 선택하였습니다.");
+        }
+    }
+
+    public int searchBook(String title){
+        for (int i=0; i<bookList.size();i++){
+            if (bookList.get(i).getTitle().equals(title)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void printBook(int index) {
+        if (index >= 0 && index < bookList.size()) {
+            System.out.println(bookList.get(index));
+        } else {
+            System.out.println("도서가 존재하지 않습니다.");
+        }
+    }
+
+    public void displayAll() {
+        if (bookList.isEmpty()) {
+            System.out.println("출력할 도서가 없습니다.");
+        } else {
+            for (BookDTO book : bookList) {
+                System.out.println(book);
+            }
+        }
+    }
+
+    public ArrayList<BookDTO> sortedBookList(int select) {
+        ArrayList<BookDTO> sortedList = new ArrayList<>(bookList);
+
+        switch (select) {
+            case 1 -> sortedList.sort(new AscCategory());
+            case 2 -> sortedList.sort(new DescCategory());
+            default -> System.out.println("정렬 번호를 잘못 입력했습니다.");
+        }
+
+        return sortedList;
+    }
+
+    public void printBookList(ArrayList<BookDTO> br) {
+        if (br == null || br.isEmpty()) {
+            System.out.println("출력할 도서가 없습니다.");
+        } else {
+            for (BookDTO book : br) {
+                System.out.println(book);
+            }
+        }
+    }
+
+
+
+
+}
+
